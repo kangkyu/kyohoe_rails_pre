@@ -229,7 +229,7 @@ Doorkeeper.configure do
   # For more information go to
   # https://doorkeeper.gitbook.io/guides/ruby-on-rails/scopes
   #
-  # default_scopes  :public
+  default_scopes  :public
   # optional_scopes :write, :update
 
   # Allows to restrict only certain scopes for grant_type.
@@ -352,7 +352,7 @@ Doorkeeper.configure do
   #   https://datatracker.ietf.org/doc/html/rfc6819#section-4.4.2
   #   https://datatracker.ietf.org/doc/html/rfc6819#section-4.4.3
   #
-  grant_flows %w[authorization_code client_credentials]
+  grant_flows %w[authorization_code]
 
   # Allows to customize OAuth grant flows that +each+ application support.
   # You can configure a custom block (or use a class respond to `#call`) that must
@@ -432,7 +432,7 @@ Doorkeeper.configure do
   #
   # before_successful_authorization do |controller, context|
   #   Rails.logger.info(controller.request.params.inspect)
-  #
+  
   #   Rails.logger.info(context.pre_auth.inspect)
   # end
   #
