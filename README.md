@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
 
-* System dependencies
+3.2.2
 
-* Configuration
+* Local development
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Add a doorkeeper application (`confidential` should be `false` for mobile)
+- Have a user
+- Have a posting
+- Go to postman and make an access token
+- and then hit the `"/api/v1/postings/1"` endpoint
