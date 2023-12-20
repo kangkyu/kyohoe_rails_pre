@@ -1,4 +1,8 @@
 class UserSessionsController < ApplicationController
+
+  before_action :require_sign_out, only: :new
+  before_action :require_sign_in, only: :destroy
+
   def new
   end
 
