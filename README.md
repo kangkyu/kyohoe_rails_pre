@@ -6,6 +6,15 @@
 
 * Local development
 
+  ```sh
+  git clone git@github.com:kangkyu/kyohoe_rails_pre.git
+  cd kyohoe_rails_pre
+  bundle install
+  bin/dev
+  ```
+
+* How to use
+
   1️⃣ Add a doorkeeper application (`confidential` should be `false` for mobile) and get `uid`.
 
   ```rb
