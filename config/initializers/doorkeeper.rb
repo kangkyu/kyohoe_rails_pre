@@ -9,7 +9,14 @@ Doorkeeper.configure do
   resource_owner_authenticator do
     # Put your resource owner authentication logic here.
     # Example implementation:
-      User.find_by(id: session[:user_id]) || redirect_to(new_user_session_url)
+    # User.find_by(id: session[:user_id]) || redirect_to(new_user_session_url)
+    current_user = User.find_by(id: session[:user_id])
+    if current_user
+      current_user
+    else
+      redirect_to(new_user_session_url)
+      nil
+    end
   end
 
   # If you didn't skip applications controller from Doorkeeper routes in your application routes.rb
@@ -92,7 +99,7 @@ Doorkeeper.configure do
   # Access token expiration time (default: 2 hours).
   # If you want to disable expiration, set this to `nil`.
   #
-  # access_token_expires_in 2.hours
+  access_token_expires_in 2.hours
 
   # Assign custom TTL for access tokens. Will be used instead of access_token_expires_in
   # option if defined. In case the block returns `nil` value Doorkeeper fallbacks to
@@ -352,7 +359,7 @@ Doorkeeper.configure do
   #   https://datatracker.ietf.org/doc/html/rfc6819#section-4.4.2
   #   https://datatracker.ietf.org/doc/html/rfc6819#section-4.4.3
   #
-  grant_flows %w[authorization_code]
+  grant_flows %w[authorization_code implicit_oidc]
 
   # Allows to customize OAuth grant flows that +each+ application support.
   # You can configure a custom block (or use a class respond to `#call`) that must
