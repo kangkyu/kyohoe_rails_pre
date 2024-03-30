@@ -2,9 +2,11 @@
 
 * Ruby version
 
-  3.2.2
+  3.2.3
 
 * Local development
+
+  Install ruby (use rbenv) and yarn (`brew install yarn` for macbooks)
 
   ```sh
   git clone git@github.com:kangkyu/kyohoe_rails_pre.git
